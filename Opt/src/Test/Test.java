@@ -9,7 +9,7 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Problem problem = new Rastrigin(10);
-		RandomSearch search = new RandomSearch();
+		RandomSearch search = new RandomSearch(100,problem);
 	}
 
 }
