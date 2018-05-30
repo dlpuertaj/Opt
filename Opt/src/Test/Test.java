@@ -10,6 +10,8 @@ public class Test {
 		// TODO Auto-generated method stub
 		Problem problem = new Rastrigin(10);
 		RandomSearch search = new RandomSearch(100,problem);
+		double opt = search.search();
+		System.out.println("Best solution found: "+opt);
 	}
 
 }

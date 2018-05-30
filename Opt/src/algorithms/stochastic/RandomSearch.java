@@ -3,7 +3,6 @@ package algorithms.stochastic;
 import java.util.Random;
 
 import problems.Problem;
-import problems.Rastrigin;
 import util.Individual;
 
 public class RandomSearch {
@@ -17,14 +16,16 @@ public class RandomSearch {
 		this.iters = iters;	
 	}
 	
-	public double run() {
-		double solution = 0;
+	public double search() {
+		double[] sol;
+		double solution = p.getInicialValue();
 		double currentSolution;
+		ind = new Individual();
 		for (int i = 0; i < iters; i++) {
-			double[] sol = randomSolution();
-			ind.setSolution(sol);
+			sol = ind.randomSolution();
+			
 			currentSolution = p.calc(ind.getSolution());
-			if(currentSolution < solution)
+			if(p.evluateSolution(currentSolution, solution))
 				solution = currentSolution;
 		}
 		return solution;
