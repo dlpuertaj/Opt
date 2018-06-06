@@ -14,19 +14,19 @@ public class RandomSearch {
 	
 	public double search() {
 		double[] solution = p.randomDoubleSolution();
-		double currentSolution;
-		double globalSolution = p.calc(solution);
+		double currentBest;
+		double globalBest = p.calc(solution);
 
 		for (int i = 0; i < iters; i++) {
-			System.out.println(i+"-"+globalSolution);
+			System.out.println(i+"-"+globalBest);
 			solution = p.randomDoubleSolution();
 			
-			currentSolution = p.calc(solution);
+			currentBest = p.calc(solution);
 			
-			if(p.evluateSolution(currentSolution, globalSolution))
-				globalSolution = currentSolution;
+			if(p.evluateSolution(currentBest, globalBest))
+				globalBest = currentBest;
 		}
 		
-		return globalSolution;
+		return globalBest;
 	}
 }
