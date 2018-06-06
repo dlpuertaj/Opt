@@ -1,15 +1,11 @@
 package algorithms.stochastic;
 
-import java.util.Random;
-
 import problems.Problem;
-import util.Individual;
 
 public class RandomSearch {
 
 	private int iters;
 	private Problem p;
-	private Individual ind;
 	
 	public RandomSearch(int iters,Problem p) {
 		this.p = p;
@@ -17,23 +13,20 @@ public class RandomSearch {
 	}
 	
 	public double search() {
-		double[] sol;
-		double solution = p.getInicialValue();
+		double[] solution = p.randomDoubleSolution();
 		double currentSolution;
-		ind = new Individual();
+		double globalSolution = p.calc(solution);
+
 		for (int i = 0; i < iters; i++) {
-			sol = ind.randomSolution();
+			System.out.println(i+"-"+globalSolution);
+			solution = p.randomDoubleSolution();
 			
-			currentSolution = p.calc(ind.getSolution());
-			if(p.evluateSolution(currentSolution, solution))
-				solution = currentSolution;
+			currentSolution = p.calc(solution);
+			
+			if(p.evluateSolution(currentSolution, globalSolution))
+				globalSolution = currentSolution;
 		}
-		return solution;
-	}
-	
-	public double[] randomSolution() {
 		
-		return new double[] {0.0};
+		return globalSolution;
 	}
-	
 }
