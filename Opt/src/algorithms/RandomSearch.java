@@ -19,7 +19,7 @@ public class RandomSearch {
 	    candidate  = randomCandidate(searchSpace, r.getN());
 	    iterBest = r.calc(candidate);
 	    best = iterBest < best ? iterBest : best;
-	    System.out.println("Iteration: " + i + " Best: " + best);
+//	    System.out.println("Iteration: " + i + " Best: " + best);
 	  }
 	  return best;
 	}

@@ -12,7 +12,7 @@ public class HillClimbing {
 			neighbor = mx.mutate(best);
 			best = mx.calc(neighbor) > found ?  neighbor : best;
 			found = mx.calc(best);
-			System.out.println(found);
+//			System.out.println(found);
 			if(found == mx.getLenght())
 				break;
 		}
