@@ -3,7 +3,7 @@ package problems;
 public class Rastrigin {
 	private int n;
 	private int A;
-
+	private final double[] bounds = {-5.12,5.12};
 	public Rastrigin (int n, int A) {
 		this.n = n;
 		this.A = A;
@@ -32,6 +32,8 @@ public class Rastrigin {
 	public void setA(int a) {
 		A = a;
 	}
-	
-	
+
+	public double[] getBounds() {
+		return bounds;
+	}
 }
